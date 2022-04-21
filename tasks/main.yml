@@ -1,0 +1,16 @@
+---
+# tasks file for user-ssh-key
+
+- name: Create user
+  user: 
+    name: "{{ username }}"
+    groups: sudo
+    password: "{{ userpasswd | password_hash('sha512', salt) }}"
+    shell: /bin/bash
+    append: yes
+
+- name: Set authorized key
+  authorized_key: 
+    user: "{{ username }}"
+    state: present
+    key: "{{ userkey }}"

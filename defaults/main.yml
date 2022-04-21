@@ -1,0 +1,7 @@
+---
+# defaults file for user-ssh-key
+
+username: someuser
+userkey: https://github.com/someuser.keys
+userpasswd: Qwerty123
+salt: somesalt
