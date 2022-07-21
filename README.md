@@ -1,8 +1,8 @@
-Ansible role: user-ssh-key
-==========================
+# Ansible role: user-ssh-key
 
 This ansible role add **new user** and **set authorized key**.
-Sample task with role:
+
+#### Example Playbook
 
 ```yaml
 - name: Create user with ssh
@@ -10,8 +10,19 @@ Sample task with role:
   become: true
   roles:
   - role: user-ssh-key
-    username: che
-    userkey: https://github.com/chernyshaw.keys
-    userpasswd: Qwerty123
-    salt: somesalt
+```
+
+#### Example inventory
+
+```yaml
+all:
+  hosts:
+    children:
+       inv_name:
+          ansible_host:
+          vars:
+            username: che
+            userkey: https://github.com/chernyshaw.keys
+            userpasswd: Qwerty123
+            salt: somesalt
 ```
